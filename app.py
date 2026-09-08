@@ -1,9 +1,31 @@
 import os
-from flask import Flask
 import datetime, platform
+from flask import Flask
 
 app = Flask(__name__)
-visit_count = 0 # Bien dem luu trong RAM cua container
+
+visit_count = 0  # Bien dem luu trong RAM cua container
+
+@app.route("/")
+def home():
+    return f"""
+    <html><head><meta charset="utf-8"><title>Flask PaaS Demo</title>
+    <style>
+    body {{ font-family: Arial; max-width: 640px; margin: 60px auto; }}
+    .box {{ background:#DEEAF1; border-left: 5px solid #1F4E79; padding: 24px; border-radius: 8px; }}
+    h1 {{ color: #1F4E79; }}
+    </style></head><body>
+    <h1>Ung dung Flask tren PaaS - phien ban 2!</h1>
+    <div class="box">
+    <p><b>Sinh vien:</b> NGUYEN NGOC THAO NGUYEN - 233404050195</p>
+    <p><b>Mon hoc:</b> Dien toan Dam may</p>
+    <p><b>Mo hinh:</b> PaaS - Platform as a Service</p>
+    <p><b>Python:</b> {platform.python_version()}</p>
+    <p><b>Thoi gian server:</b> {datetime.datetime.now()}</p>
+    </div>
+    <p>Developer chi viet code - PaaS lo build, deploy, HTTPS, scaling!</p>
+    </body></html>
+    """
 
 @app.route("/api/counter")
 def counter():
@@ -21,29 +43,6 @@ def info():
         "sinh_vien": ten_sinh_vien,
         "nguon_du_lieu": "Environment Variable tren Render, KHONG hardcode trong code"
     }
-
-@app.route("/")
-def home():
-    return f"""
-    <html><head><meta charset="utf-8"><title>Flask PaaS Demo</title>
-    <style>
-    body {{ font-family: Arial; max-width: 640px; margin: 60px auto; }}
-    .box {{ background:#DEEAF1; border-left: 5px solid #1F4E79;
-    padding: 24px; border-radius: 8px; }}
-    h1 {{ color: #1F4E79; }}
-    </style></head><body>
-    <h1>Ung dung Flask tren PaaS - phien ban 2</h1>
-    <div class="box">
-    <p><b>Sinh vien:</b> NGUYEN NGOC THAO NGUYEN - 233404050195</p>
-    <p><b>Mon hoc:</b> Dien toan Dam may </p>
-    <p><b>Mo hinh:</b> PaaS - Platform as a Service</p>
-    <p><b>Python:</b> {platform.python_version()}</p>
-    <p><b>Thoi gian server:</b> {datetime.datetime.now()}</p>
-    </div>
-
-    <p>Developer chi viet code - PaaS lo build, deploy, HTTPS, scaling!</p>
-    </body></html>
-    """
 
 @app.route("/health")
 def health():
