@@ -15,7 +15,7 @@ h1 {{ color: #1F4E79; }}
 </style></head><body>
 <h1>Ung dung Flask tren PaaS - phien ban 2!</h1>
 <div class="box">
-<p><b>Sinh vien:</b> NGUYEN_TRAN_GIA_HUE - 233404050174</p>
+<p><b>Sinh vien:</b> NGUYEN_NGOC_THAO_NGUYEN - 233404050195</p>
 <p><b>Mon hoc:</b> Dien toan Dam may </p>
 <p><b>Mo hinh:</b> PaaS - Platform as a Service</p>
 <p><b>Python:</b> {platform.python_version()}</p>
